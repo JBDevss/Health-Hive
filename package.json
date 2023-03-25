@@ -1,0 +1,25 @@
+{
+  "name": "current-project",
+  "version": "1.0.0",
+  "description": ">This fitness tracker app, called \"Health Hive,\" is designed to help users track their fitness progress and achieve their fitness goals. Exercise logging, goal setting (BMI), water intake tracking, and nutrition logging. With these features, Health Hive provides a simple, easy-to-use platform to help users stay motivated and achieve their fitness goals.",
+  "main": "index.js",
+  "scripts": {
+    "devStart": "nodemon server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.1.0",
+    "ejs": "^3.1.9",
+    "express": "^4.18.2",
+    "express-flash": "^0.0.2",
+    "express-session": "^1.17.3",
+    "method-override": "^3.0.0",
+    "passport": "^0.6.0",
+    "passport-local": "^1.0.0"
+  },
+  "devDependencies": {
+    "dotenv": "^16.0.3",
+    "nodemon": "^2.0.22"
+  }
+}
