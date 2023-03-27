@@ -4,6 +4,7 @@
     --clr-neon: #67CF3D;
     --clr-light-grey: #3D444D;
     --clr-light: #EDECFF;
+    --clr-comp-gren: #437D28;
 
     --ff-primary: 'Merriweather', serif;
     
@@ -175,25 +176,6 @@ main {
     border: 2px red solid;
 }
 
-.input-group {
-    margin-top: 65px;
-}
-
-input {
-    background-color: var(--clr-light);
-}
-
-.input-group>input {
-    padding: 15px;
-}
-
-.dropdown-toggle {
-    background-color: var(--clr-dark);
-    color: var(--clr-light);
-    padding: 20px
-}
-
-
 
 
 
@@ -231,12 +213,15 @@ footer {
     width: 600px;
 }
 
-
-
-
-
-
-
-
-
+article {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    border: 2px black solid;
+  }
+  
+  article img {
+    height: auto;
+    margin-left: 20px;
+  }
   

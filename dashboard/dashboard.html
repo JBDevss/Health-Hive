@@ -17,93 +17,117 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="dashboard.css" />
+    <script src="dashboard.js" defer></script>
   </head>
   <body>
-
     <!-- NAV BAR -->
     <header>
-        <nav class="nav">
-            <img class="logo" src="/Health-Hive/Asset_Pkg/SVG/Logo White.svg" width="50px"/>
-            <h3 class="healthHive">Health Hive</h3>
-            <p>Bayzed</p>
-        </nav>
+      <nav class="nav">
+        <img
+          class="logo"
+          src="/Health-Hive/Asset_Pkg/SVG/Logo White.svg"
+          width="50px"
+        />
+        <h3 class="healthHive">Health Hive</h3>
+        <p>Bayzed</p>
+      </nav>
     </header>
 
     <!-- CALORIES + DAILY INFO -->
-    <main>
-        <div class="left-col">
-            <h1 class="goodmorning-title">Good Morning <br>Bayzed!</h1>
-            <div class="daily-info">
-                <h1>Daily Info</h1>
-                <p>Remaining = Goal - Food - Exercise</p>
-                <div class="daily-info-stats">
-                    <div class="daily-info-left">
-                        <div class="left-stat">
-                            <h1>12420</h1>
-                            <p>Steps</p>
-                        </div>
-                        <div class="left-stat">
-                            <h1>7.5 hrs</h1>
-                            <p>Sleep</p>
-                        </div>
-                    </div>
-                    <div class="daily-info-right">
-                        <div class="right-stat">
-                            <h1>12420</h1>
-                            <p>Steps</p>
-                        </div>
-                        <div class="right-stat">
-                            <h1>7.5 hrs</h1>
-                            <p>Sleep</p>
-                        </div>
-                    </div>
-                </div>
+    <main class="container-fluid">
+      <div class="left-col">
+        <h1 class="goodmorning-title">Good Morning <br />Bayzed!</h1>
+        <div class="daily-info">
+          <h1>Daily Info</h1>
+          <p>Remaining = Goal - Food - Exercise</p>
+          <div class="daily-info-stats">
+            <div class="daily-info-left">
+              <div class="left-stat">
+                <h1>12420</h1>
+                <p>Steps</p>
+              </div>
+              <div class="left-stat">
+                <h1>7.5 hrs</h1>
+                <p>Sleep</p>
+              </div>
             </div>
+            <div class="daily-info-right">
+              <div class="right-stat">
+                <h1>12420</h1>
+                <p>Steps</p>
+              </div>
+              <div class="right-stat">
+                <h1>7.5 hrs</h1>
+                <p>Sleep</p>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="right-col">
-
-        </div>
+      </div>
+      <div class="right-col container"></div>
     </main>
 
     <!-- EXERCISE SECTION -->
-    <section class="exercise-section">
-        <header class="exercise-header">
-            <h2>Don't know what exercises to do?</h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto perspiciatis error provident id debitis fugit. Nihil obcaecati laboriosam, animi nesciunt quo pariatur sed perferendis fugiat a, exercitationem facilis distinctio aperiam.</p>
-        </header>
+    <section class="exercise-section container-fluid">
+      <header class="exercise-header">
+        <h2>Don't know what exercises to do?</h2>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto
+          perspiciatis error provident id debitis fugit. Nihil obcaecati
+          laboriosam, animi nesciunt quo pariatur sed perferendis fugiat a,
+          exercitationem facilis distinctio aperiam.
+        </p>
+      </header>
 
-        <div class="input-group mb-3">
-            <input type="text" class="form-control" aria-label="Text input with dropdown button" placeholder="Ex. Strength" pattern="[a-z]*">
-            <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">By Category</button>
-            <ul class="dropdown-menu dropdown-menu-end">
-              <li><a class="dropdown-item" href="#">Action</a></li>
-              <li><a class="dropdown-item" href="#">Another action</a></li>
-              <li><a class="dropdown-item" href="#">Something else here</a></li>
-            </ul>
-          </div>
+      <!-- EXERCISE OUTPUTS -->
+      <section class="exercise-ouputs container-fluid">
+        <section class="fitness-articles-container container-fluid">
 
-          <!-- EXERCISE OUTPUTS -->
-          <section class="exercise-outputs">
-            <h2>Workouts to to do for [INSERT MUSLCE]</h2>
-          </section>
-    </section>
+          <form id="muscle-form">
+            <select id="target-muscle-select">
+              <option value="abductors">Abductors</option>
+              <option value="abs">Abs</option>
+              <option value="calves">Calves</option>
+              <option value="biceps">Biceps</option>
+              <option value="cardiovascular system">Cardiovascular system</option>
+              <option value="delts">Delts</option>
+              <option value="forearms">Forearms</option>
+              <option value="glutes">Glutes</option>
+              <option value="hamstrings">Hamstrings</option>
+              <option value="lats">Lats</option>
+              <option value="levator scapulae">Levator Scapulae</option>
+              <option value="pectorals">Pectorals</option>
+              <option value="quads">Quads</option>
+              <option value="serratus anterior">Serratus anterior</option>
+              <option value="spine">Spine</option>
+              <option value="traps">Traps</option>
+              <option value="triceps">Triceps</option>
+              <option value="upper back">Upper Back</option>
+            </select>
+            <input id="submit-btn" type="button" value="Submit" />
+          </form>
+
+          <h2>Workouts to to do for <span id="muscle-group-text"></span></h2>
+          <div id="exercise-results"></div>
+          
+        </section>
+
+      </section>
 
     <!-- FOOTER -->
     <footer>
-        <div class="footer-logo-wrapper">
-            <img class="footer-logo" src="../Asset_Pkg/SVG/Logo Neon.svg" alt="">
-            <div class="name-wrapper">
-                <h2 class="footer-name">Health</h2>
-                <h2 class="footer-name">Hive</h2>
-            </div>
+      <div class="footer-logo-wrapper">
+        <img class="footer-logo" src="../Asset_Pkg/SVG/Logo Neon.svg" alt="" />
+        <div class="name-wrapper">
+          <h2 class="footer-name">Health</h2>
+          <h2 class="footer-name">Hive</h2>
         </div>
-        <p class="about-us">"Track your way to a better you with our fitness tracker. Take control of your health and achieve your goals one step at a time."</p>
+      </div>
+      <p class="about-us">
+        "Track your way to a better you with our fitness tracker. Take control
+        of your health and achieve your goals one step at a time."
+      </p>
     </footer>
-
-
-
-
-
 
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js"
