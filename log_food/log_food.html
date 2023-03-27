@@ -35,61 +35,64 @@
     </div>
 
     <div class="section2">
-        <h2 class="add-Food">Add Your Food</h2>
-        <div class="search-container">
-            <input type="text" placeholder="Cinnamon Pancake">
-            <div class="dropdown">
-              <button class="dropbtn">Add To</button>
-              <div class="dropdown-content">
-                <h4>Breakfast</h4>
-                <h4>Lunch</h4>
-                <h4>Dinner</h4>
-                <h4>Snacks</h4>
-              </div>
-            </div>
-          </div>
+        <h2>Add your food here</h2>
+        <div class="select-container">
+            <select id="meal-select">
+                <option value="breakfast">Breakfast</option>
+                <option value="lunch">Lunch</option>
+                <option value="dinner">Dinner</option>
+                <option value="snacks">Snacks</option>
+            </select>
+        </div>
+        <form class="search-container">
+            <input type="text" placeholder="Cinnamon Pancake" class="food-input">
+            <button class="search-btn" type="submit">Search</button>
+        </form>
+        <div class="search-results">
+            <ul class="search-result-list"></ul>
+        </div>
     </div>
 
     <div class="section3">
         <div class="food-card">
             <div class="card-title">
                 <h3>Breakfast</h3>
-                <h3>600 cal</h3>
+                <h3>00 cal</h3>
             </div>
             <ul class="breakfast"></ul>
         </div>
         <div class="food-card">
            <div class="card-title">
                 <h3>Lunch</h3>
-                <h3>600 cal</h3>
+                <h3>00 cal</h3>
            </div>
            <ul class="lunch"></ul>
         </div>
         <div class="food-card">
             <div class="card-title">
                 <h3>Dinner</h3>
-                <h3>600 cal</h3>
+                <h3>00 cal</h3>
            </div>
            <ul class="dinner"></ul>
         </div>
         <div class="food-card">
             <div class="card-title">
                 <h3>Snacks</h3>
-                <h3>600 cal</h3>
+                <h3>00 cal</h3>
            </div>
            <ul class="snacks"></ul>
         </div>
         <div class="food-card">
             <div class="card-title">
                 <h3>Water</h3>
-                <h3>600 cal</h3>
+                <h3>00 cal</h3>
            </div>
            <ul class="water"></ul>
         </div>
         <div class="food-card">
             <div class="card-title">
                 <h3>Sleep</h3>
-                <h3>600 cal</h3>
+                <h3>00 cal</h3>
            </div>
            <ul class="sleep"></ul>
         </div>
