@@ -4,7 +4,7 @@
     --clr-neon: #67CF3D;
     --clr-light-grey: #3D444D;
     --clr-light: #EDECFF;
-    --clr-comp-gren: #437D28;
+    --clr-comp-green: #437D28;
 
     --ff-primary: 'Merriweather', serif;
     
@@ -107,7 +107,6 @@ nav>p {
 
 /* CALORIES + DAILY INFO */
 main {
-    /* border: 3px red solid; */
     display: flex;
     background-color: var(--clr-dark);
     justify-content: center;
@@ -123,7 +122,7 @@ main {
 .daily-info {
     width: 100%;
     height: 500px;
-    background-color: var(--clr-light-grey);
+    background-color: var(--clr-green);
     color: var(--clr-light);
     border-radius: 50px;
     padding: 50px;
@@ -150,7 +149,7 @@ main {
 .right-col {
     width: 55%;
     height: 100;
-    background-color: var(--clr-light-grey);
+    background-color: var(--clr-green);
     color: var(--clr-light);
     border-radius: 50px;
     margin: 20px;
@@ -173,11 +172,87 @@ main {
     padding: 100px;
     color: var(--clr-light);
     background-color: var(--clr-green);
-    border: 2px red solid;
+}
+
+.exercise-ouputs {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 
+#muscle-form {
+    background-color: var(--clr-light);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px var(--clr-dark);
+    width: 100%;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
 
+  .select-container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+  .select-container select {
+    width: 48%;
+    padding: 10px;
+    font-size: 16px;
+    font-weight: 300;
+    border: 1px solid var(--clr-light);
+    border-radius: 5px;
+    color: var(--clr-light-grey);
+    outline: none;
+}
+
+  #submit-btn {
+    width: 100%;
+    background-color: var(--clr-dark);
+    border: none;
+    padding: 10px;
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--clr-light);
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#submit-btn:hover {
+    background-color: var(--clr-comp-green);
+}
+
+.card-img-top {
+    max-height: 200px; /* Adjust the height as needed */
+    object-fit: contain;
+}
+  
+.card {
+    border: 2px solid #ccc;
+}
+  
+  .card-title {
+    text-align: center;
+}
+  
+  .icon-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: darkgreen;
+    border-radius: 50%;
+    padding: 6px;
+    cursor: pointer;
+}
+  
+.icon-button svg {
+    fill: white;
+    width: 16px;
+    height: 16px;
+}
 
 /* FOOTER */
 
@@ -212,16 +287,3 @@ footer {
 .about-us {
     width: 600px;
 }
-
-article {
-    display: flex;
-    align-items: center;
-    margin-bottom: 20px;
-    border: 2px black solid;
-  }
-  
-  article img {
-    height: auto;
-    margin-left: 20px;
-  }
-  

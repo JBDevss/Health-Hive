@@ -28,19 +28,36 @@ submitBtn.addEventListener('click', async function(e) {
     muscleGroupText.textContent = selectedMuscle;
     const exercisedbURL = `https://exercisedb.p.rapidapi.com/exercises/target/${selectedMuscle}`;
     const exercisedbData = await fetchData(exercisedbURL, exercisesDBOption);
-    exercisedbData.slice(0, 6).forEach(exercise => {
-        const article = document.createElement('article');
-        const div = document.createElement('div');
-        const h1 = document.createElement('h1');
+    exercisedbData.slice(0, 12).forEach(exercise => {
+        const col = document.createElement('div');
+        col.classList.add('col-md-3', 'mb-4');
+    
+        const card = document.createElement('div');
+        card.classList.add('card', 'position-relative');
+    
         const img = document.createElement('img');
-
-        h1.textContent = exercise.name;
-
+        img.classList.add('card-img-top');
         img.setAttribute('src', exercise.gifUrl);
-        
-        div.appendChild(h1);
-        div.appendChild(img);
-        article.appendChild(div);
-        exerciseResults.appendChild(article);
-    });
+        img.setAttribute('alt', exercise.name);
+    
+        const cardBody = document.createElement('div');
+        cardBody.classList.add('card-body');
+    
+        const h5 = document.createElement('h5');
+        h5.classList.add('card-title');
+        h5.textContent = exercise.name;
+    
+        const iconButton = document.createElement('img');
+        iconButton.classList.add('icon-button');
+        iconButton.setAttribute('src', '../Asset_Pkg/SVG/Add_Button.svg');
+        iconButton.style.width = '30px';
+        iconButton.style.padding = '1px';
+    
+        cardBody.appendChild(h5);
+        card.appendChild(img);
+        card.appendChild(cardBody);
+        card.appendChild(iconButton);
+        col.appendChild(card);
+        exerciseResults.appendChild(col);
+    });    
 });
