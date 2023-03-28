@@ -133,11 +133,63 @@
             <input id="submit-btn" type="button" value="Submit" />
           </form>
         </section>
-
-
           <h2 style="margin: 30px;">Workouts to to do for <span id="muscle-group-text">. . .</span><span id="equip-text"></span></h2>
           <div id="exercise-results" class="row"></div>
       </section>
+
+      <!-- WEEKLY SCHEDULE -->
+      <section id="weekly-schedule">
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              <h2>Weekly Schedule</h2>
+            </div>
+            <!-- Day containers -->
+            <div class="col-md-4 col-lg-2 day-container" id="monday">
+              <h3>Monday</h3>
+            </div>
+            <div class="col-md-4 col-lg-2 day-container" id="tuesday">
+              <h3>Tuesday</h3>
+            </div>
+            <div class="col-md-4 col-lg-2 day-container" id="wednesday">
+              <h3>Wednesday</h3>
+            </div>
+            <div class="col-md-4 col-lg-2 day-container" id="thusday">
+              <h3>Thursday</h3>
+            </div>
+            <div class="col-md-4 col-lg-2 day-container" id="friday">
+              <h3>Friday</h3>
+            </div>
+            <div class="col-md-4 col-lg-2 day-container" id="saturday">
+              <h3>Saturday</h3>
+            </div>
+            <div class="col-md-4 col-lg-2 day-container" id="sunday">
+              <h3>Sunday</h3>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- MODAL -->
+      <div class="modal" tabindex="-1" id="exerciseModal">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Add Exercise</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <input type="number" id="setsInput" placeholder="Sets" class="form-control mb-3">
+              <input type="number" id="repsInput" placeholder="Reps" class="form-control">
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-primary" id="addExercise">Add</button>
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      
     
     <!-- READ FITNESS ARTICLE SECRION -->
     <section class="read-fitness-section container-fluid">

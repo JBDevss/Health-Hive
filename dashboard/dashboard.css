@@ -244,6 +244,53 @@ main {
     height: 16px;
 }
 
+/* WEEKLY SCHEDULE */
+  
+#weekly-schedule {
+    background-color: var(--clr-dark); 
+    padding: 2rem 0;
+}
+  
+#weekly-schedule h2 {
+    color: var(--clr-light); 
+    margin-bottom: 1.5rem;
+}
+  
+.day-container {
+    background-color: var(--clr-light); 
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    color: var(--clr-dark);
+}
+  
+.day-container h3 {
+    color: var(--secondary-color); 
+    margin-bottom: 1rem;
+}
+  
+/* Modal */
+.modal-title {
+    color: var(--primary-color); 
+}
+
+.modal-body input.form-control {
+    background-color: var(--input-background); 
+    color: var(--input-color); 
+}
+
+.modal-footer button.btn-primary {
+    background-color: var(--primary-color); 
+    color: var(--button-text-color);
+}
+
+.modal-footer button.btn-secondary {
+    background-color: var(--secondary-color); 
+    color: var(--button-text-color); 
+}
+  
+
 /* MEDIUM FTINESS ARTICLES  */
 
 

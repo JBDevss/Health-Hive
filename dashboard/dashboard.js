@@ -38,7 +38,7 @@ submitBtn.addEventListener('click', async function(e) {
         return true;
     }).slice(0, 12).forEach(exercise => {
         const col = document.createElement('div');
-        col.classList.add('col-lg-3', 'col-md-4', 'mb-4'); // Change col-md-3 to col-lg-2 and col-md-4
+        col.classList.add('col-lg-3', 'col-md-4', 'mb-4');
 
         const card = document.createElement('div');
         card.classList.add('card', 'position-relative');
@@ -61,12 +61,53 @@ submitBtn.addEventListener('click', async function(e) {
         iconButton.style.width = '30px';
         iconButton.style.padding = '1px';
 
+        iconButton.addEventListener('click', function() {
+            const selectedDay = document.getElementById('day-select').value;
+            console.log(selectedDay);
+            const modal = new bootstrap.Modal(document.getElementById('exerciseModal'));
+            modal.show();
+            const addExerciseBtn = document.getElementById('addExercise');
+            
+            addExerciseBtn.onclick = function() {
+              const sets = document.getElementById('setsInput').value;
+              const reps = document.getElementById('repsInput').value;
+            
+
+              const exerciseElem = document.createElement('p');
+              exerciseElem.textContent = `${exercise.name} - ${sets} sets x ${reps} reps`;
+            
+   
+              const removeButton = document.createElement('button');
+              removeButton.textContent = 'X';
+              removeButton.style.marginLeft = '10px';
+            
+        
+              exerciseElem.appendChild(removeButton);
+            
+              
+              removeButton.addEventListener('click', function() {
+                document.getElementById(selectedDay).removeChild(exerciseElem);
+              });
+            
+             
+              document.getElementById(selectedDay).appendChild(exerciseElem);
+           
+              exerciseResults.removeChild(col);
+            
+              modal.hide();
+            };
+        });
+
+        col.appendChild(card);
+        exerciseResults.appendChild(col);
         cardBody.appendChild(h5);
         card.appendChild(img);
         card.appendChild(cardBody);
         card.appendChild(iconButton);
         col.appendChild(card);
         exerciseResults.appendChild(col);
+
     });
 });
+  
 
