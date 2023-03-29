@@ -113,11 +113,13 @@ main {
     padding: 100px;
 }
 
+
 /* DAILY INFO */
 
-.left-col {
-    margin: 20px;
-}
+/* .left-col {
+
+} */
+
 
 .todays-workout {
     width: 100%;
@@ -128,10 +130,16 @@ main {
     padding: 50px;
 }
 
+.goodMorning-text-container {
+    background-color: var(--clr-green);
+    border-radius: 50px;
+}
+
 .goodmorning-title {
     font-size: var(--fs-xl);
     color: var(--clr-neon);
-    padding: 15px;
+    padding: 30px;
+    font-size: var(--fs-l)
 }
 
 /* CALORIES */
@@ -142,7 +150,6 @@ main {
     background-color: var(--clr-green);
     color: var(--clr-light);
     border-radius: 50px;
-    margin: 20px;
 }
 
 .daily-info-stats {
@@ -248,7 +255,7 @@ main {
   
 #weekly-schedule {
     background-color: var(--clr-dark); 
-    padding: 2rem 0;
+    padding: 100px;
 }
   
 #weekly-schedule h2 {
@@ -257,17 +264,19 @@ main {
 }
   
 .day-container {
-    background-color: var(--clr-light); 
+    background-color: var(--clr-light-grey); 
     padding: 1rem;
-    margin-bottom: 1rem;
+    margin: 1rem;
     border-radius: 5px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    color: var(--clr-dark);
+    color: var(--clr-light);
+    text-align: center;
 }
   
-.day-container h3 {
-    color: var(--secondary-color); 
+.day-container h4 {
+    color: var(--clr-light); 
     margin-bottom: 1rem;
+    padding: 1rem;
 }
   
 /* Modal */
@@ -293,6 +302,9 @@ main {
 
 /* MEDIUM FTINESS ARTICLES  */
 
+.read-fitness-section {
+    padding: 100px;
+}
 
 
 /* FOOTER */
