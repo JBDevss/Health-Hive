@@ -1,14 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Health Hive</title>
     <link rel="stylesheet" href="register.css">
-    <script src="register.js"></script>
+    <script defer src="register.js"></script>
 </head>
+
 <body>
-    
+    <form class="wrapper" id="free-trial">
+        <h3 class="title">Lets learn about you!</h3>
+        <div class="name-wrapper">
+            <input class="name first" type="text" placeholder="First Name" required/>
+            <input class="name last" type="text" placeholder="Last Name" required />
+        </div>
+        <input class="goal-cal" type="text" placeholder="3,110 cal" required/>
+        <input class="submit-btn" type="submit" value="Start Now"/>
+    </form>
 </body>
+
 </html>
