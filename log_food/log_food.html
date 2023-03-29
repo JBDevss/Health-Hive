@@ -24,29 +24,46 @@
     <div class="section1">
         <h3>Calories Remaining</h3>
         <div class="daily-goal">
-            <h5>3,110 cal<br>goal</h5>
+            <div>
+                <div class="goal-wrapper">
+                    <h5 id='goalCal'>3110</h5>
+                    <h5>‎ cal</h5>
+                </div>
+                <h5>goal</h5>
+            </div>
             <h5>-</h5>
-            <h5>600 cal<br>food</h5>
-            <h5>+</h5>
-            <h5>20 cal<br>excercise</h5>
+            <div>
+                <div class="goal-wrapper">
+                    <h5 id='totalCalCount'>00</h5>
+                    <h5>‎ cal</h5>
+                </div>
+                <h5>food</h5>
+            </div>
             <h5>=</h5>
-            <h5>2,510 cal<br>remaining</h5>
+            <div>
+                <div class="goal-wrapper">
+                    <h5 id='remainingCal'>3110</h5>
+                    <h5>‎ cal</h5>
+                </div>
+                <h5>remaining</h5>
+            </div>
         </div>
     </div>
 
     <div class="section2">
         <h2>Add your food here</h2>
-        <div class="select-container">
+    
+        <form class="search-container">
             <select id="meal-select">
                 <option value="breakfast">Breakfast</option>
                 <option value="lunch">Lunch</option>
                 <option value="dinner">Dinner</option>
                 <option value="snacks">Snacks</option>
             </select>
-        </div>
-        <form class="search-container">
-            <input type="text" placeholder="Cinnamon Pancake" class="food-input">
-            <button class="search-btn" type="submit">Search</button>
+            <div class="search-bar">
+                <input type="text" placeholder="Cinnamon Pancake" class="food-input">
+                <button class="search-btn" type="submit">Search</button>
+            </div>
         </form>
         <div class="search-results">
             <ul class="search-result-list"></ul>
@@ -57,45 +74,32 @@
         <div class="food-card">
             <div class="card-title">
                 <h3>Breakfast</h3>
-                <h3>00 cal</h3>
+                <h3 class="breakfast-cal">00 cal</h3>
             </div>
-            <ul class="breakfast"></ul>
+            <ul id="breakfast"></ul>
         </div>
         <div class="food-card">
            <div class="card-title">
                 <h3>Lunch</h3>
-                <h3>00 cal</h3>
+                <h3 class="lunch-cal">00 cal</h3>
            </div>
-           <ul class="lunch"></ul>
+           <ul id="lunch"></ul>
         </div>
         <div class="food-card">
             <div class="card-title">
                 <h3>Dinner</h3>
-                <h3>00 cal</h3>
+                <h3 class="dinner-cal">00 cal</h3>
            </div>
-           <ul class="dinner"></ul>
+           <ul id="dinner"></ul>
         </div>
         <div class="food-card">
             <div class="card-title">
                 <h3>Snacks</h3>
-                <h3>00 cal</h3>
+                <h3 class="snacks-cal">00 cal</h3>
            </div>
-           <ul class="snacks"></ul>
+           <ul id="snacks"></ul>
         </div>
-        <div class="food-card">
-            <div class="card-title">
-                <h3>Water</h3>
-                <h3>00 cal</h3>
-           </div>
-           <ul class="water"></ul>
-        </div>
-        <div class="food-card">
-            <div class="card-title">
-                <h3>Sleep</h3>
-                <h3>00 cal</h3>
-           </div>
-           <ul class="sleep"></ul>
-        </div>
+   
     </div>
 
     
