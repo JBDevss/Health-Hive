@@ -130,6 +130,20 @@ main {
     padding: 50px;
 }
 
+.todays-workout>h4 {
+    font-size: var(--fs-l)
+}
+
+.todays-workout>h3 {
+    font-size: var(--fs-l)
+}
+
+.todays-workout>p {
+    font-size: var(--fs-s);
+    margin: 10px;
+}
+
+
 .goodMorning-text-container {
     background-color: var(--clr-green);
     border-radius: 50px;
@@ -169,6 +183,10 @@ main {
     padding: 100px;
     color: var(--clr-light);
     background-color: var(--clr-green);
+}
+
+.exercise-header>p {
+    margin: 25px 0px 35px 0px;
 }
 
 .exercise-ouputs {
