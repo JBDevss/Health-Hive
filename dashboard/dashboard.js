@@ -7,23 +7,23 @@ const equipText = document.getElementById("equip-text");
 const exercisesDBOption = {
   method: "GET",
   headers: {
-    "X-RapidAPI-Key": "ba47d36648msh5662494c40029c5p14a61fjsn99e9e90466eb",
+    "X-RapidAPI-Key": "872c4036admsh1c8ccc18d8a0242p1cd2cajsn1740854e141e",
     "X-RapidAPI-Host": "exercisedb.p.rapidapi.com",
   },
 };
 
-const mediumOption = {
-  method: "GET",
-  headers: {
-    "X-RapidAPI-Key": "ba47d36648msh5662494c40029c5p14a61fjsn99e9e90466eb",
-    "X-RapidAPI-Host": "medium2.p.rapidapi.com",
-  },
-};
-
 const fetchData = async (url, options) => {
-  const response = await fetch(url, options);
-  const data = await response.json();
-  return data;
+  const cacheKey = `cache_${url}`;
+  const cachedData = localStorage.getItem(cacheKey);
+
+  if (cachedData) {
+    return JSON.parse(cachedData);
+  } else {
+    const response = await fetch(url, options);
+    const data = await response.json();
+    localStorage.setItem(cacheKey, JSON.stringify(data));
+    return data;
+  }
 };
 
 submitBtn.addEventListener("click", async function (e) {
@@ -75,39 +75,37 @@ submitBtn.addEventListener("click", async function (e) {
       iconButton.addEventListener("click", function () {
         const selectedDay = document.getElementById("day-select").value;
         console.log(selectedDay);
-        const modal = new bootstrap.Modal(
-          document.getElementById("exerciseModal")
-        );
+        const modal = new bootstrap.Modal(document.getElementById("exerciseModal"));
         modal.show();
         const addExerciseBtn = document.getElementById("addExercise");
-
+      
         addExerciseBtn.onclick = function () {
           const sets = document.getElementById("setsInput").value;
           const reps = document.getElementById("repsInput").value;
-
+      
           const exerciseElem = document.createElement("p");
           exerciseElem.textContent = `${exercise.name} - ${sets} sets x ${reps} reps`;
-
+      
           const removeButton = document.createElement("button");
           removeButton.textContent = "X";
           removeButton.style.marginLeft = "10px";
-
+      
           exerciseElem.appendChild(removeButton);
-
+      
           removeButton.addEventListener("click", function () {
             document.getElementById(selectedDay).removeChild(exerciseElem);
             displayTodaysWorkout();
           });
-
+      
           document.getElementById(selectedDay).appendChild(exerciseElem);
-
+      
           exerciseResults.removeChild(col);
-
+      
           modal.hide();
           displayTodaysWorkout();
         };
       });
-
+      
       col.appendChild(card);
       exerciseResults.appendChild(col);
       cardBody.appendChild(h5);
@@ -134,21 +132,28 @@ const displayTodaysWorkout = () => {
   const currentDay = days[new Date().getDay()];
   const currentDayContainer = document.getElementById(currentDay);
 
-  todaysWorkoutContainer.innerHTML = `<h3>Today's Workout: ${currentDay.toUpperCase()}</h3>`;
-  currentDayContainer.childNodes.forEach((exercise) => {
-    if (exercise.nodeType === Node.ELEMENT_NODE) {
-      const exerciseClone = exercise.cloneNode(true);
+  Array.from(currentDayContainer.childNodes)
+    .slice(1) // Start from the second element
+    .forEach((exercise, index) => {
+      if (exercise.nodeType === Node.ELEMENT_NODE) {
+        const exerciseClone = exercise.cloneNode(true);
 
-      const removeButtonClone = exerciseClone.querySelector("button");
+        const removeButton = exerciseClone.querySelector("button");
+        if (removeButton) {
+          exerciseClone.removeChild(removeButton);
+        }
 
-      if (removeButtonClone) {
-        removeButtonClone.addEventListener("click", function () {
-          todaysWorkoutContainer.removeChild(exerciseClone);
-          currentDayContainer.removeChild(exercise);
-        });
+        if (index !== 0) {
+          // Skip adding checkbox for the first exercise
+          const checkbox = document.createElement("input");
+          checkbox.type = "checkbox";
+          checkbox.style.marginRight = "10px";
+
+          exerciseClone.insertBefore(checkbox, exerciseClone.firstChild);
+        }
+
+        todaysWorkoutContainer.appendChild(exerciseClone);
       }
-
-      todaysWorkoutContainer.appendChild(exerciseClone);
-    }
-  });
+    });
 };
+
