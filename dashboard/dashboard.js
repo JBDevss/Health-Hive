@@ -95,6 +95,7 @@ submitBtn.addEventListener("click", async function (e) {
           removeButton.addEventListener("click", function () {
             document.getElementById(selectedDay).removeChild(exerciseElem);
             displayTodaysWorkout();
+            saveScheduleToLocalStorage();
           });
       
           document.getElementById(selectedDay).appendChild(exerciseElem);
@@ -103,6 +104,7 @@ submitBtn.addEventListener("click", async function (e) {
       
           modal.hide();
           displayTodaysWorkout();
+          saveScheduleToLocalStorage();
         };
       });
       

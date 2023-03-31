@@ -1,34 +1,33 @@
-// document.querySelector(".search-container").addEventListener("submit", (e) => {
-//     searchResults.innerText = ''
-//     e.preventDefault()
-//     const searchTerm = e.target[0].value
-
-//     fetch(`https://nutritionix-api.p.rapidapi.com/v1_1/search/?x-app-id=sdasdawdasd&x-app-key=ba47d36648msh5662494c40029c5p14a61fjsn99e9e90466eb`)
-//     .then(response => response.json())
-//     .then(data => {
-//         console.log(data);
-//     })
-//     .catch(error => {
-//         console.log('failed')
-//     });
-  
-// })
-
 const searchButton = document.querySelector('.search-btn');
 const form = document.querySelector('.search-container')
+
 const API_ENDPOINT = 'https://nutritionix-api.p.rapidapi.com/v1_1/search/';
 const APP_ID = 'nutritionix-api.p.rapidapi.com';
 const APP_KEY = '872c4036admsh1c8ccc18d8a0242p1cd2cajsn1740854e141e';
-const selectedCategory = document.getElementById('meal-select')
+
+
 const section2 = document.querySelector('.section2')
 const searchResults = document.querySelector('.search-result-list')
+const goalCal = document.getElementById('goalCal')
+const totalCalCount = document.getElementById('totalCalCount')
+const remainingCal = document.getElementById('remainingCal')
+let totalCal = 0;
+let remaining = parseInt(goalCal.innerText);
 
 form.addEventListener('submit', async (e) => {
     searchResults.innerText = '';
     e.preventDefault()
-    const searchTerm = e.target[0].value;
+    const searchTerm = e.target[1].value;
+    console.log(searchTerm)
     const result = await fetchFoodData(searchTerm);
     // console.log(selectedCategory.value)
+    let categories = document.getElementById('meal-select')
+    let selectedCategory = categories.value
+    console.log(selectedCategory)
+    let foodCard = document.getElementById(`${selectedCategory}`)
+    let calCount = 0;
+    let cal = document.getElementsByClassName(`${selectedCategory}-cal`)
+    console.log(foodCard)
     console.log(result);
     const searchResultTitle = document.createElement('h2')
     searchResultTitle.setAttribute("class", "search-results-title")
@@ -38,20 +37,34 @@ form.addEventListener('submit', async (e) => {
         const listItem = document.createElement('li');
         const nameWrapper = document.createElement('div');
         const foodName = document.createElement('h4');
-        foodName.innerText = `${element.fields.item_name}`;
+        foodName.innerText = `${element.fields.item_name}` + ' ';
         nameWrapper.append(foodName);
         const foodDescription = document.createElement('h5')
         foodDescription.innerText = `${element.fields.brand_name}, ${element.fields.nf_calories} cal`
         nameWrapper.setAttribute('class', 'name-wrapper')
         nameWrapper.append(foodDescription);
-        listItem.append(nameWrapper)
-        const addBtn = document.createElement('img')
+        listItem.append(nameWrapper);
+        const addBtn = document.createElement('img');
         addBtn.src ="../Asset_Pkg/SVG/Add_Button.svg"
         addBtn.setAttribute("class", "add-btn")
         listItem.append(addBtn);
         searchResults.append(listItem);
-    });
+            addBtn.addEventListener('click', () => {
+            //const foodCard = document.getElementsByClassName(`${e.target[0].value}`)
+            foodCard.append(listItem);
+            listItem.style.padding = "0px"
+            totalCal += parseInt(`${element.fields.nf_calories}`)
+            totalCalCount.innerText = `${totalCal} cal`
+            remaining -= parseInt(`${element.fields.nf_calories}`)
+            remainingCal.innerText = `${remaining} cal`
+            console.log(cal[0].innerText)
+            calCount += parseInt(`${element.fields.nf_calories}`);
+            console.log (parseInt(`${element.fields.nf_calories}`))
+            cal[0].innerText = `${calCount} cal`
 
+            
+        });
+    });
 })
 
 async function fetchFoodData(searchTerm) {
@@ -68,15 +81,6 @@ async function fetchFoodData(searchTerm) {
     } catch (error) {
       throw new Error(error.message);
     }
-  }
-
-
-// searchButton.addEventListener('click', async () => {
-//     const foodInput = document.getElementById('food-input');
-//     const foodName = foodInput;
-//     const foodData = await fetchFoodData(foodName);
-
-// });
-
+}
 
 

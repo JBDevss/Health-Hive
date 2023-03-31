@@ -1,0 +1,151 @@
+:root {
+    --clr-dark: #161616;
+    --clr-green: #116628;
+    --clr-neon: #67CF3D;
+    --clr-light-grey: #3D444D;
+    --clr-light: #EDECFF;
+
+    --ff-primary: 'Merriweather', serif;
+    
+    --fw-light: 300;
+    --fw-regular: 400;
+    --fw-bold: 700;
+    --fw-black: 900;
+
+    --fs-xs: 20px;
+    --fs-s: 25px;
+    --fs-m: 38px;
+    --fs-l: 60px;
+    --fs-xl: 90px;
+}
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margin */
+* {
+    margin: 0;
+    padding: 0;
+    font: inherit;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role='list'],
+ol[role='list'] {
+  list-style: none;
+}
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+html,
+body {
+    height: 100%;
+    font-family: var(ff-primary);
+}
+
+/* Set core body defaults */
+body {
+  text-rendering: optimizeSpeed;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+svg,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--clr-dark);
+
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    height: auto;
+    background-color: var(--clr-light-grey);
+    color: var(--clr-light);
+    padding: 80px;
+    border-radius: 35px;
+}
+
+.name-wrapper {
+    display: flex;
+    flex-direction: row;
+}
+
+.name {
+    width: 50%;
+    border-left: 0;
+    border-right: 0;
+    border-top: 0;
+    
+}
+
+.goal-cal {
+    width: 100%;
+}
+
+h3{
+    font-size: var(--fs-m);
+}
+
+input {
+    height: 2.5em;
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.8em;
+    outline: none;
+    color: var(--clr-light);
+    border: 1px solid var(--clr-light);
+    background-color: transparent;
+
+}
+
+.submit-btn {
+    padding: 0.5em;
+    background-color: var(--clr-neon);
+    border: none;
+    margin-top: 30px;
+}
+
+.goal-cal {
+    border-left: 0;
+    border-right: 0;
+    border-top: 0;
+}
+
+.submit-btn:hover {
+    background-color: var(--clr-light);
+    color: var(--clr-neon);
+}
+
+.first {
+    margin-right: 15px;
+}
+
+.last {
+    margin-left: 15px;
+}
+

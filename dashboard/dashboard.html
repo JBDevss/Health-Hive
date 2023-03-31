@@ -2,10 +2,14 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
+<<<<<<< HEAD
     <meta
       name="viewport"
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
+=======
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+>>>>>>> 5121d7e545cf05ce57b0b0b33ed30b5c11394117
     <title>Dashboard</title>
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css"
@@ -37,10 +41,14 @@
     </header>
 
     <!-- CALORIES + DAILY INFO -->
+<<<<<<< HEAD
     <main
       class="container-fluid row"
       style="padding-left: 100px; padding-right: 100px"
     >
+=======
+    <main class="container-fluid row" style="padding-left: 100px; padding-right: 100px;">
+>>>>>>> 5121d7e545cf05ce57b0b0b33ed30b5c11394117
       <div class="left-col container col">
         <div class="container col goodMorning-text-container">
           <h1 class="goodmorning-title container">
@@ -58,12 +66,18 @@
     <section class="exercise-section container-fluid">
       <header class="exercise-header">
         <h2>Don't know what exercises to do?</h2>
+<<<<<<< HEAD
         <hr />
         <p>
           Simply choose the muscle you would like to target in your exercise! If
           there is a specific equipment you would to use to target the desired
           muscle, we have a plethora of options! Lastly, choose the day you
           would like to perform this exercise.
+=======
+        <hr>
+        <p>
+          Simply choose the muscle you would like to target in your exercise! If there is a specific equipment you would to use to target the desired muscle, we have a plethora of options! Lastly, choose the day you would like to perform this exercise.
+>>>>>>> 5121d7e545cf05ce57b0b0b33ed30b5c11394117
         </p>
       </header>
 
@@ -95,6 +109,7 @@
               <option value="upper back">Upper Back</option>
             </select>
 
+<<<<<<< HEAD
             <select id="equipment-select">
               <option value="">Select equipment</option>
               <option value="assisted">Assisted</option>
@@ -126,6 +141,113 @@
               <option value="weighted">Weighted</option>
               <option value="wheel roller">Wheel Roller</option>
             </select>
+=======
+          <form id="muscle-form" class="container">
+            <div class="select-container">
+
+              <select id="target-muscle-select">
+                <option value="">Select target muscle</option>
+                <option value="abductors">Abductors</option>
+                <option value="abs">Abs</option>
+                <option value="calves">Calves</option>
+                <option value="biceps">Biceps</option>
+                <option value="cardiovascular system">Cardiovascular system</option>
+                <option value="delts">Delts</option>
+                <option value="forearms">Forearms</option>
+                <option value="glutes">Glutes</option>
+                <option value="hamstrings">Hamstrings</option>
+                <option value="lats">Lats</option>
+                <option value="levator scapulae">Levator Scapulae</option>
+                <option value="pectorals">Pectorals</option>
+                <option value="quads">Quads</option>
+                <option value="serratus anterior">Serratus anterior</option>
+                <option value="spine">Spine</option>
+                <option value="traps">Traps</option>
+                <option value="triceps">Triceps</option>
+                <option value="upper back">Upper Back</option>
+              </select>
+
+              <select id="equipment-select">
+                <option value="">Select equipment</option>
+                <option value="assisted">Assisted</option>
+                <option value="band">Band</option>
+                <option value="barbell">Barbell</option>
+                <option value="body weight">Body Weight</option>
+                <option value="bosu ball">Bosu Ball</option>
+                <option value="cable">Cable</option>
+                <option value="dumbbell">Dumbbell</option>
+                <option value="ellipical machine">ellipical Machine</option>
+                <option value="ez barbell">Ez Barbell</option>
+                <option value="hammer">Hammer</option>
+                <option value="kettlebell">Kettlebell</option>
+                <option value="levator machine">Leverage Machine</option>
+                <option value="medicine ball">Medicine Ball</option>
+                <option value="olympic barbell">Olympic Barbell</option>
+                <option value="resistance band">Resistance Band</option>
+                <option value="roller">Roller</option>
+                <option value="rope">Rope</option>
+                <option value="skierg machine">Skierg Machine</option>
+                <option value="sled machine">Sled Machine</option>
+                <option value="smith machine">Smith Machine</option>
+                <option value="stability ball">Stability Ball</option>
+                <option value="stationary bike">Stationary Bike</option>
+                <option value="stepmill machine">Stephill Machine</option>
+                <option value="tire">Tire</option>
+                <option value="trap bar">Trap Bar</option>
+                <option value="upper body ergometer">Upper Body Ergometer</option>
+                <option value="weighted">Weighted</option>
+                <option value="wheel roller">Wheel Roller</option>
+              </select>
+
+              <select id="day-select">
+                <option value="">Select day</option>
+                <option value="monday">Monday</option>
+                <option value="tuesday">Tuesday</option>
+                <option value="wednesday">Wednesday</option>
+                <option value="thursday">Thursday</option>
+                <option value="friday">Friday</option>
+                <option value="saturday">Saturday</option>
+                <option value="sunday">Sunday</option>
+              </select>
+
+            </div>
+            <input id="submit-btn" type="button" value="Submit" />
+          </form>
+        </section>
+          <h2 style="margin: 30px;">Workouts to to do for <span id="muscle-group-text">. . .</span><span id="equip-text"></span></h2>
+          <div id="exercise-results" class="row"></div>
+      </section>
+
+      <!-- WEEKLY SCHEDULE -->
+      <section id="weekly-schedule">
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              <h2>Weekly Schedule</h2>
+            </div>
+            <!-- Day containers -->
+            <div class="col-sm day-container" id="monday">
+              <h4>Monday</h4>
+            </div>
+            <div class="col-sm day-container" id="tuesday">
+              <h4>Tuesday</h4>
+            </div>
+            <div class="col-sm day-container" id="wednesday">
+              <h4>Wednesday</h4>
+            </div>
+            <div class="col-sm day-container" id="thursday">
+              <h4>Thursday</h4>
+            </div>
+            <div class="col-sm day-container" id="friday">
+              <h4>Friday</h4>
+            </div>
+            <div class="col-sm day-container" id="saturday">
+              <h4>Saturday</h4>
+            </div>
+            <div class="col-sm day-container" id="sunday">
+              <h4>Sunday</h4>
+            </div>
+>>>>>>> 5121d7e545cf05ce57b0b0b33ed30b5c11394117
           </div>
           <input id="submit-btn" type="button" value="Submit" />
         </form>
