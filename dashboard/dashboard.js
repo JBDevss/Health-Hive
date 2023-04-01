@@ -213,3 +213,52 @@ const displayTodaysWorkout = () => {
 
 
 
+const apiKey = '2b6772c566b81b4705e9cb91adfd8e6125df3d9c6b8740184b328e71f4e55e964';
+const url = 'https://api.medium.com/v1/search';
+
+async function getFitnessArticles() {
+  try {
+    const response = await fetch(`${url}?q=fitness&fields=title&limit=10`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${apiKey}`
+      }
+    });
+    const data = await response.json();
+    const articles = data.data.filter(article => {
+      const title = article.title.toLowerCase();
+      const tags = article.virtuals.tags.map(tag => tag.name.toLowerCase());
+      return (
+        title.includes('fitness') ||
+        title.includes('health') ||
+        title.includes('workout') ||
+        title.includes('exercise') ||
+        tags.includes('fitness') ||
+        tags.includes('health') ||
+        tags.includes('workout') ||
+        tags.includes('exercise') ||
+        tags.includes('diet plans')
+      );
+    });
+    const sortedArticles = articles
+      .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
+      .slice(0, 5);
+    const articleDetails = sortedArticles.map(article => {
+      return {
+        title: article.title,
+        description: article.description,
+        thumbnail: article.virtuals.previewImage.imageId ? `https://miro.medium.com/fit/c/100/100/${article.virtuals.previewImage.imageId}` : ''
+      };
+    });
+    console.log(articleDetails);
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+getFitnessArticles();
+
+
+
+
