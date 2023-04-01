@@ -113,7 +113,6 @@ main {
     padding: 100px;
 }
 
-
 /* DAILY INFO */
 
 /* .left-col {
@@ -296,6 +295,20 @@ main {
     margin-bottom: 1rem;
     padding: 1rem;
 }
+
+.remove-btn {
+    background-color: red;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    font-size: 12px;
+    line-height: 20px;
+    text-align: center;
+    cursor: pointer;
+}
+  
   
 /* Modal */
 
