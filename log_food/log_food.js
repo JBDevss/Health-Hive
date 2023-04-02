@@ -13,7 +13,8 @@ goalCal.innerText = calorieGoal;
 const totalCalCount = document.getElementById("totalCalCount");
 const remainingCal = document.getElementById("remainingCal");
 let totalCal = 0;
-let remaining = parseInt(goalCal.innerText);
+let remaining = calorieGoal;
+remainingCal.innerText = remaining;
 
 let localBreakfast = [];
 let localLunch = [];
@@ -23,13 +24,12 @@ let localBreakfastCal = 0;
 let localLunchCal = 0;
 let localDinnerCal = 0;
 let localSnacksCal = 0;
+let localTotalCal = 0;
+let localRemainingCal = calorieGoal;
 
 render();
 
 function render() {
-  // let categories = document.getElementById('meal-select')
-  // let selectedCategory = categories.value
-
   if (JSON.parse(localStorage.getItem("localBreakfast"))) {
     let parsedBreakfast = JSON.parse(localStorage.getItem("localBreakfast"));
     parsedBreakfast.forEach((food) => {
@@ -98,6 +98,22 @@ function render() {
     localStorage.setItem("localSnacks", JSON.stringify(localSnacks));
     localStorage.setItem("localSnacksCal", JSON.stringify(localSnacksCal));
   }
+
+  if (JSON.parse(localStorage.getItem("localTotalCal"))) {
+    const totalCalCount = document.getElementById("totalCalCount");
+    let parsedLocalTotalCal = JSON.parse(localStorage.getItem('localTotalCal'))
+    totalCalCount.innerText = `${parseInt(parsedLocalTotalCal)}`
+  } else {
+    localStorage.setItem('localTotalCal', JSON.stringify(localTotalCal));
+  }
+
+  if (JSON.parse(localStorage.getItem("localRemainingCal"))) {
+    const remainingCal = document.getElementById("remainingCal");
+    let parsedLocalRemainingCal = JSON.parse(localStorage.getItem('localRemainingCal'))
+    remainingCal.innerText = `${parseInt(parsedLocalRemainingCal)}`
+  } else {
+    localStorage.setItem('localRemainingCal', JSON.stringify(localRemainingCal));
+  }
 }
 
 form.addEventListener("submit", async (e) => {
@@ -106,7 +122,6 @@ form.addEventListener("submit", async (e) => {
   const searchTerm = e.target[1].value;
   console.log(searchTerm);
   const result = await fetchFoodData(searchTerm);
-  // console.log(selectedCategory.value)
   let categories = document.getElementById("meal-select");
   let selectedCategory = categories.value;
   console.log(selectedCategory);
@@ -144,6 +159,8 @@ form.addEventListener("submit", async (e) => {
           let parsedBreakfastCal = JSON.parse(localStorage.getItem("localBreakfastCal"));
           parsedBreakfastCal += parseInt(`${element.fields.nf_calories}`);
           localStorage.setItem("localBreakfastCal",JSON.stringify(parsedBreakfastCal));
+          localTotalCal += parseInt(`${element.fields.nf_calories}`)
+          localStorage.setItem("localTotalCal",JSON.stringify(localTotalCal));
           break;
         case "lunch":
           let parsedLunch = JSON.parse(localStorage.getItem("localLunch"));
@@ -152,6 +169,8 @@ form.addEventListener("submit", async (e) => {
           let parsedLunchCal = JSON.parse(localStorage.getItem("localLunchCal"));
           parsedLunchCal += parseInt(`${element.fields.nf_calories}`);
           localStorage.setItem("localLunchCal",JSON.stringify(parsedLunchCal));
+          localTotalCal += parseInt(`${element.fields.nf_calories}`)
+          localStorage.setItem("localTotalCal",JSON.stringify(localTotalCal));
           break;
         case "dinner":
           let parsedDinner = JSON.parse(localStorage.getItem("localDinner"));
@@ -160,6 +179,8 @@ form.addEventListener("submit", async (e) => {
           let parsedDinnerCal = JSON.parse(localStorage.getItem("localDinnerCal"));
           parsedDinnerCal += parseInt(`${element.fields.nf_calories}`);
           localStorage.setItem("localDinnerCal",JSON.stringify(parsedDinnerCal));
+          localTotalCal += parseInt(`${element.fields.nf_calories}`)
+          localStorage.setItem("localTotalCal",JSON.stringify(localTotalCal));
           break;
         case "snacks":
           let parsedSnacks = JSON.parse(localStorage.getItem("localSnacks"));
@@ -168,7 +189,8 @@ form.addEventListener("submit", async (e) => {
           let parsedSnacksCal = JSON.parse(localStorage.getItem("localSnacksCal"));
           parsedSnacksCal += parseInt(`${element.fields.nf_calories}`);
           localStorage.setItem("localSnacksCal",JSON.stringify(parsedSnacksCal));
-          break;
+          localTotalCal += parseInt(`${element.fields.nf_calories}`)
+          localStorage.setItem("localTotalCal",JSON.stringify(localTotalCal));
       }
       let item = document.createElement("li");
       item.innerText = listItem.innerText;

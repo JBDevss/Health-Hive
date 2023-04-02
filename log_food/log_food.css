@@ -183,6 +183,11 @@ select {
     padding-left:  35px;
     padding-right: 35px;
     outline: none;
+    appearance: none;
+    background-image: url(../Asset_Pkg/SVG/Dropdown\ Arrow.svg);
+    background-repeat: no-repeat;
+    background-position: right 2rem center;
+    background-size: 1em;
 }
 
 /* Styling for the option elements */
@@ -260,7 +265,7 @@ li {
     list-style: none;
     margin-top: 10px;
     border-radius: 20px;
-    padding: 20px;
+    padding-right: 20px;
 }
 
 .search-results-title {
