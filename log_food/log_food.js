@@ -13,7 +13,7 @@ goalCal.innerText = calorieGoal;
 const totalCalCount = document.getElementById("totalCalCount");
 const remainingCal = document.getElementById("remainingCal");
 let totalCal = 0;
-let remaining = calorieGoal;
+let remaining = parseInt(JSON.parse(localStorage.userData).calorieGoal) - totalCal;
 remainingCal.innerText = remaining;
 
 let localBreakfast = [];
@@ -99,20 +99,23 @@ function render() {
     localStorage.setItem("localSnacksCal", JSON.stringify(localSnacksCal));
   }
 
-  if (JSON.parse(localStorage.getItem("localTotalCal"))) {
+  if (JSON.parse(localStorage.getItem("totalCal"))) {
     const totalCalCount = document.getElementById("totalCalCount");
-    let parsedLocalTotalCal = JSON.parse(localStorage.getItem('localTotalCal'))
-    totalCalCount.innerText = `${parseInt(parsedLocalTotalCal)}`
+    let parsedLocalTotalCal = JSON.parse(localStorage.getItem('totalCal'))
+    totalCal = parseInt(parsedLocalTotalCal);
+    totalCalCount.innerText = `${parseInt(totalCal)}`
+
   } else {
-    localStorage.setItem('localTotalCal', JSON.stringify(localTotalCal));
+    localStorage.setItem('totalCal', JSON.stringify(totalCal));
   }
 
-  if (JSON.parse(localStorage.getItem("localRemainingCal"))) {
-    const remainingCal = document.getElementById("remainingCal");
-    let parsedLocalRemainingCal = JSON.parse(localStorage.getItem('localRemainingCal'))
-    remainingCal.innerText = `${parseInt(parsedLocalRemainingCal)}`
+  if (JSON.parse(localStorage.getItem("remainingCal"))) {
+    //const remainingCal = document.getElementById("remainingCal");
+    let parsedLocalRemainingCal = JSON.parse(localStorage.getItem('remaining'))
+    remaining = parseInt(parsedLocalRemainingCal);
+    remainingCal.innerText = `${parseInt(parsedLocalRemainingCal)}`;
   } else {
-    localStorage.setItem('localRemainingCal', JSON.stringify(localRemainingCal));
+    localStorage.setItem('remainingCal', JSON.stringify(remaining));
   }
 }
 
@@ -151,47 +154,6 @@ form.addEventListener("submit", async (e) => {
     listItem.append(addBtn);
     searchResults.append(listItem);
     addBtn.addEventListener("click", () => {
-      switch (selectedCategory) {
-        case "breakfast":
-          let parsedBreakfast = JSON.parse(localStorage.getItem("localBreakfast"));
-          parsedBreakfast.push(listItem.innerText);
-          localStorage.setItem("localBreakfast",JSON.stringify(parsedBreakfast));
-          let parsedBreakfastCal = JSON.parse(localStorage.getItem("localBreakfastCal"));
-          parsedBreakfastCal += parseInt(`${element.fields.nf_calories}`);
-          localStorage.setItem("localBreakfastCal",JSON.stringify(parsedBreakfastCal));
-          localTotalCal += parseInt(`${element.fields.nf_calories}`)
-          localStorage.setItem("localTotalCal",JSON.stringify(localTotalCal));
-          break;
-        case "lunch":
-          let parsedLunch = JSON.parse(localStorage.getItem("localLunch"));
-          parsedLunch.push(listItem.innerText);
-          localStorage.setItem("localLunch", JSON.stringify(parsedLunch));
-          let parsedLunchCal = JSON.parse(localStorage.getItem("localLunchCal"));
-          parsedLunchCal += parseInt(`${element.fields.nf_calories}`);
-          localStorage.setItem("localLunchCal",JSON.stringify(parsedLunchCal));
-          localTotalCal += parseInt(`${element.fields.nf_calories}`)
-          localStorage.setItem("localTotalCal",JSON.stringify(localTotalCal));
-          break;
-        case "dinner":
-          let parsedDinner = JSON.parse(localStorage.getItem("localDinner"));
-          parsedDinner.push(listItem.innerText);
-          localStorage.setItem("localDinner", JSON.stringify(parsedDinner));
-          let parsedDinnerCal = JSON.parse(localStorage.getItem("localDinnerCal"));
-          parsedDinnerCal += parseInt(`${element.fields.nf_calories}`);
-          localStorage.setItem("localDinnerCal",JSON.stringify(parsedDinnerCal));
-          localTotalCal += parseInt(`${element.fields.nf_calories}`)
-          localStorage.setItem("localTotalCal",JSON.stringify(localTotalCal));
-          break;
-        case "snacks":
-          let parsedSnacks = JSON.parse(localStorage.getItem("localSnacks"));
-          parsedSnacks.push(listItem.innerText);
-          localStorage.setItem("localSnacks", JSON.stringify(parsedSnacks));
-          let parsedSnacksCal = JSON.parse(localStorage.getItem("localSnacksCal"));
-          parsedSnacksCal += parseInt(`${element.fields.nf_calories}`);
-          localStorage.setItem("localSnacksCal",JSON.stringify(parsedSnacksCal));
-          localTotalCal += parseInt(`${element.fields.nf_calories}`)
-          localStorage.setItem("localTotalCal",JSON.stringify(localTotalCal));
-      }
       let item = document.createElement("li");
       item.innerText = listItem.innerText;
       let foodCard = document.getElementById(`${selectedCategory}`);
@@ -206,6 +168,55 @@ form.addEventListener("submit", async (e) => {
       calCount += parseInt(`${element.fields.nf_calories}`);
       console.log(parseInt(`${element.fields.nf_calories}`));
       cal[0].innerText = `${calCount} cal`;
+
+      switch (selectedCategory) {
+        case "breakfast":
+          let parsedBreakfast = JSON.parse(localStorage.getItem("localBreakfast"));
+          parsedBreakfast.push(listItem.innerText);
+          localStorage.setItem("localBreakfast",JSON.stringify(parsedBreakfast));
+          let parsedBreakfastCal = JSON.parse(localStorage.getItem("localBreakfastCal"));
+          parsedBreakfastCal += parseInt(`${element.fields.nf_calories}`);
+          localStorage.setItem("localBreakfastCal",JSON.stringify(parsedBreakfastCal));
+          // localTotalCal += (parseInt(`${element.fields.nf_calories}`) + parseInt(JSON.parse(localStorage.getItem('localTotalCal'))))
+          localStorage.setItem("totalCal",JSON.stringify(totalCal));
+          localStorage.setItem("remaining",JSON.stringify(remaining));
+          break;
+        case "lunch":
+          let parsedLunch = JSON.parse(localStorage.getItem("localLunch"));
+          parsedLunch.push(listItem.innerText);
+          localStorage.setItem("localLunch", JSON.stringify(parsedLunch));
+          let parsedLunchCal = JSON.parse(localStorage.getItem("localLunchCal"));
+          parsedLunchCal += parseInt(`${element.fields.nf_calories}`);
+          localStorage.setItem("localLunchCal",JSON.stringify(parsedLunchCal));
+          // localTotalCal += (parseInt(`${element.fields.nf_calories}`) + parseInt(JSON.parse(localStorage.getItem('localTotalCal'))))
+          localStorage.setItem("totalCal",JSON.stringify(totalCal));
+          localStorage.setItem("remaining",JSON.stringify(remaining));
+
+          break;
+        case "dinner":
+          let parsedDinner = JSON.parse(localStorage.getItem("localDinner"));
+          parsedDinner.push(listItem.innerText);
+          localStorage.setItem("localDinner", JSON.stringify(parsedDinner));
+          let parsedDinnerCal = JSON.parse(localStorage.getItem("localDinnerCal"));
+          parsedDinnerCal += parseInt(`${element.fields.nf_calories}`);
+          localStorage.setItem("localDinnerCal",JSON.stringify(parsedDinnerCal));
+          // localTotalCal += (parseInt(`${element.fields.nf_calories}`) + parseInt(JSON.parse(localStorage.getItem('localTotalCal'))))
+          localStorage.setItem("totalCal",JSON.stringify(totalCal));
+          localStorage.setItem("remaining",JSON.stringify(remaining));
+          break;
+        case "snacks":
+          let parsedSnacks = JSON.parse(localStorage.getItem("localSnacks"));
+          parsedSnacks.push(listItem.innerText);
+          localStorage.setItem("localSnacks", JSON.stringify(parsedSnacks));
+          let parsedSnacksCal = JSON.parse(localStorage.getItem("localSnacksCal"));
+          parsedSnacksCal += parseInt(`${element.fields.nf_calories}`);
+          localStorage.setItem("localSnacksCal",JSON.stringify(parsedSnacksCal));
+          // let parsedLocalTotalCal = JSON.parse(localStorage.getItem("localTotalCal"));
+          // localTotalCal += (parseInt(`${element.fields.nf_calories}`) + parseInt(JSON.parse(localStorage.getItem('localTotalCal'))))
+          localStorage.setItem("totalCal",JSON.stringify(totalCal));
+          localStorage.setItem("remaining",JSON.stringify(remaining));
+      }
+
     });
   });
 });
