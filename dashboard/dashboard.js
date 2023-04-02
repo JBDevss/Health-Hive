@@ -3,6 +3,15 @@ const muscleSelect = document.getElementById("target-muscle-select");
 const equipmentSelect = document.getElementById("equipment-select");
 const muscleGroupText = document.getElementById("muscle-group-text");
 const equipText = document.getElementById("equip-text");
+const parsedUserData = JSON.parse(localStorage.userData);
+const userFirstName = parsedUserData.firstName;
+const userCalorieGoal = parsedUserData.calorieGoal;
+
+const navbarUser = document.getElementById("user-firstname");
+navbarUser.textContent = userFirstName;
+
+const goodMorningUser = document.getElementById("goodmorning-username");
+goodMorningUser.textContent = userFirstName;
 
 const exercisesDBOption = {
   method: "GET",
