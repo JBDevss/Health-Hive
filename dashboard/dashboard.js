@@ -26,6 +26,22 @@ const fetchData = async (url, options) => {
   }
 };
 
+const saveWorkoutData = () => {
+  const workoutData = {};
+
+  days.forEach((day) => {
+    const dayContainer = document.getElementById(day);
+    const exercises = Array.from(dayContainer.querySelectorAll("p"));
+
+    workoutData[day] = exercises.map((exercise) => ({
+      text: exercise.firstChild.textContent.trim(),
+    }));
+  });
+
+  localStorage.setItem("workoutData", JSON.stringify(workoutData));
+};
+
+
 submitBtn.addEventListener("click", async function (e) {
   e.preventDefault();
   const exerciseResults = document.getElementById("exercise-results");
@@ -78,7 +94,7 @@ submitBtn.addEventListener("click", async function (e) {
           return days[selectedDayIndex];
         }
         const selectedDay = getSelectedDay();
-        
+
         console.log(selectedDay);
         const modal = new bootstrap.Modal(
           document.getElementById("exerciseModal")
@@ -104,6 +120,7 @@ submitBtn.addEventListener("click", async function (e) {
           removeButton.addEventListener("click", function () {
             document.getElementById(selectedDay).removeChild(exerciseElem);
             displayTodaysWorkout();
+            saveWorkoutData();
           });
 
           document.getElementById(selectedDay).appendChild(exerciseElem);
@@ -112,6 +129,7 @@ submitBtn.addEventListener("click", async function (e) {
 
           modal.hide();
           displayTodaysWorkout();
+          saveWorkoutData();
         };
       });
 
@@ -136,45 +154,50 @@ const days = [
   "saturday",
 ];
 
-const saveWorkoutData = () => {
-  const workoutData = days.reduce((accumulator, day) => {
-    const dayContainer = document.getElementById(day);
-    accumulator[day] = Array.from(dayContainer.childNodes)
-      .slice(1)
-      .map((exercise) => exercise.textContent);
-    return accumulator;
-  }, {});
-
-  localStorage.setItem('workoutData', JSON.stringify(workoutData));
-};
-
 const loadWorkoutData = () => {
-  const workoutData = JSON.parse(localStorage.getItem('workoutData'));
+  const workoutData = JSON.parse(localStorage.getItem("workoutData"));
 
   if (workoutData) {
     days.forEach((day) => {
       const dayContainer = document.getElementById(day);
-      workoutData[day].forEach((exerciseText) => {
-        const exerciseElem = document.createElement('p');
-        exerciseElem.textContent = exerciseText;
 
-        const removeButton = document.createElement('button');
-        removeButton.classList.add('remove-btn');
-        removeButton.textContent = 'X';
-        removeButton.style.marginLeft = '10px';
+      workoutData[day].forEach((exerciseData) => {
+        const exerciseElem = document.createElement("p");
+        exerciseElem.innerHTML = exerciseData.text;
+
+        const removeButton = document.createElement("button");
+        removeButton.classList.add("remove-btn");
+        removeButton.textContent = "X";
+        removeButton.style.marginLeft = "10px";
 
         exerciseElem.appendChild(removeButton);
 
-        removeButton.addEventListener('click', function () {
+        removeButton.addEventListener("click", function () {
           dayContainer.removeChild(exerciseElem);
           displayTodaysWorkout();
+          saveWorkoutData();
         });
 
         dayContainer.appendChild(exerciseElem);
       });
     });
+    displayTodaysWorkout();
+  } else {
+    const initialData = {
+      monday: [],
+      tuesday: [],
+      wednesday: [],
+      thursday: [],
+      friday: [],
+      saturday: [],
+      sunday: [],
+    };
+    localStorage.setItem("workoutData", JSON.stringify(initialData));
   }
 };
+
+
+
 
 const displayTodaysWorkout = () => {
   const todaysWorkoutContainer = document.querySelector(".todays-workout");
@@ -208,57 +231,34 @@ const displayTodaysWorkout = () => {
         todaysWorkoutContainer.appendChild(exerciseClone);
       }
     });
-    saveWorkoutData();
 };
 
+const clearExercisesInDayContainer = (dayContainer) => {
+  const exercises = Array.from(dayContainer.querySelectorAll("p"));
+
+  exercises.forEach((exercise) => dayContainer.removeChild(exercise));
+};
+
+document.getElementById("clear-all-btn").addEventListener("click", () => {
+  days.forEach((day) => {
+    const dayContainer = document.getElementById(day);
+    clearExercisesInDayContainer(dayContainer);
+  });
+
+  displayTodaysWorkout();
+  saveWorkoutData();
+});
+
+days.forEach((day) => {
+  const dayContainer = document.getElementById(day);
+  const clearBtn = dayContainer.querySelector(".clear-btn");
+
+  clearBtn.addEventListener("click", () => {
+    clearExercisesInDayContainer(dayContainer);
+    displayTodaysWorkout();
+    saveWorkoutData();
+  });
+});
 
 
-const apiKey = '2b6772c566b81b4705e9cb91adfd8e6125df3d9c6b8740184b328e71f4e55e964';
-const url = 'https://api.medium.com/v1/search';
-
-async function getFitnessArticles() {
-  try {
-    const response = await fetch(`${url}?q=fitness&fields=title&limit=10`, {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${apiKey}`
-      }
-    });
-    const data = await response.json();
-    const articles = data.data.filter(article => {
-      const title = article.title.toLowerCase();
-      const tags = article.virtuals.tags.map(tag => tag.name.toLowerCase());
-      return (
-        title.includes('fitness') ||
-        title.includes('health') ||
-        title.includes('workout') ||
-        title.includes('exercise') ||
-        tags.includes('fitness') ||
-        tags.includes('health') ||
-        tags.includes('workout') ||
-        tags.includes('exercise') ||
-        tags.includes('diet plans')
-      );
-    });
-    const sortedArticles = articles
-      .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
-      .slice(0, 5);
-    const articleDetails = sortedArticles.map(article => {
-      return {
-        title: article.title,
-        description: article.description,
-        thumbnail: article.virtuals.previewImage.imageId ? `https://miro.medium.com/fit/c/100/100/${article.virtuals.previewImage.imageId}` : ''
-      };
-    });
-    console.log(articleDetails);
-  } catch (error) {
-    console.log(error);
-  }
-}
-
-getFitnessArticles();
-
-
-
-
+loadWorkoutData();

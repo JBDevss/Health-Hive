@@ -26,11 +26,7 @@
     <!-- NAV BAR -->
     <header>
       <nav class="nav">
-        <img
-          class="logo"
-          src="../Asset_Pkg/SVG/Logo White.svg"
-          width="50px"
-        />
+        <img class="logo" src="../Asset_Pkg/SVG/Logo White.svg" width="50px" />
         <h3 class="healthHive">Health Hive</h3>
         <p>Bayzed</p>
       </nav>
@@ -39,8 +35,7 @@
     <!-- CALORIES + DAILY INFO -->
     <main
       class="container-fluid row"
-      style="padding-left: 100px; padding-right: 100px; margin-left: 0px;"
-
+      style="padding-left: 100px; padding-right: 100px; margin-left: 0px"
     >
       <div class="left-col container col">
         <div class="container col goodMorning-text-container">
@@ -145,27 +140,43 @@
           <div class="col-12">
             <h2>Weekly Schedule</h2>
           </div>
+          <div class="text-center my-3">
+            <button class="btn btn-danger" id="clear-all-btn">Clear All</button>
+          </div>
           <!-- Day containers -->
           <div class="col-sm day-container" id="monday">
             <h4>Monday</h4>
+            <button class="btn btn-danger btn-sm clear-btn">Clear</button>
           </div>
+
           <div class="col-sm day-container" id="tuesday">
             <h4>Tuesday</h4>
+            <button class="btn btn-danger btn-sm clear-btn">Clear</button>
           </div>
+
           <div class="col-sm day-container" id="wednesday">
             <h4>Wednesday</h4>
+            <button class="btn btn-danger btn-sm clear-btn">Clear</button>
           </div>
+
           <div class="col-sm day-container" id="thursday">
             <h4>Thursday</h4>
+            <button class="btn btn-danger btn-sm clear-btn">Clear</button>
           </div>
+
           <div class="col-sm day-container" id="friday">
             <h4>Friday</h4>
+            <button class="btn btn-danger btn-sm clear-btn">Clear</button>
           </div>
+
           <div class="col-sm day-container" id="saturday">
             <h4>Saturday</h4>
+            <button class="btn btn-danger btn-sm clear-btn">Clear</button>
           </div>
+
           <div class="col-sm day-container" id="sunday">
             <h4>Sunday</h4>
+            <button class="btn btn-danger btn-sm clear-btn">Clear</button>
           </div>
         </div>
       </div>
@@ -173,7 +184,10 @@
 
     <!-- MODAL FOR SETS AND REPS WHEN EXERCISE ADDED  -->
     <div class="modal" tabindex="-1" id="exerciseModal">
-      <div class="modal-dialog modal-dialog-centered custom-modal-width" role="document">
+      <div
+        class="modal-dialog modal-dialog-centered custom-modal-width"
+        role="document"
+      >
         <div class="modal-content">
           <div class="modal-header">
             <h5 class="modal-title">Add Exercise</h5>
@@ -185,8 +199,14 @@
             ></button>
           </div>
           <div class="modal-body">
-            <label for="day-select" style="margin-bottom: 16px;">Select Day:</label>
-            <select id="day-select" class="form-select" style="margin-bottom: 16px;">
+            <label for="day-select" style="margin-bottom: 16px"
+              >Select Day:</label
+            >
+            <select
+              id="day-select"
+              class="form-select"
+              style="margin-bottom: 16px"
+            >
               <option value="1">Monday</option>
               <option value="2">Tuesday</option>
               <option value="3">Wednesday</option>
