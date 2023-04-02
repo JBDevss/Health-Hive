@@ -182,6 +182,7 @@ select {
     border-radius: 35px;
     padding-left:  35px;
     padding-right: 35px;
+    outline: none;
 }
 
 /* Styling for the option elements */
