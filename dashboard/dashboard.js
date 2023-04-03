@@ -254,3 +254,4 @@ document.getElementById("clear-all-btn").addEventListener("click", () => {
 });
 
 loadWorkoutData();
+

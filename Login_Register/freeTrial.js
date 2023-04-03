@@ -44,5 +44,5 @@ form.addEventListener('submit', e => {
     window.localStorage.setItem('userData', JSON.stringify(userData));
 
     // Redirect the user to a new page
-   window.location.href ="/dashboard/dashboard.html";
+   window.location.href ="https://jbdevss.github.io/Health-Hive/dashboard/dashboard.html";
 });
