@@ -103,6 +103,11 @@ h1 {
 line-height: 0.8;
 }
 
+a {
+  color: var(--clr-light);
+  text-decoration: none;
+}
+
 .sign-up-btn {
   width: 200px;
   height: 42px;
