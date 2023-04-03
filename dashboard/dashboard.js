@@ -13,7 +13,7 @@ const remainingCalories = document.getElementById('remaining-calories')
 
 goodMorningUser.textContent = userFirstName;
 calorieGoalSpanTag.textContent = userCalorieGoal;
-remainingCalories.textContent = parseInt(JSON.parse(localStorage.remaining || "0"));
+remainingCalories.textContent = parseInt(JSON.parse(localStorage.remaining || userCalorieGoal));
 
 const exercisesDBOption = {
   method: "GET",
