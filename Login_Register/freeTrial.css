@@ -178,3 +178,118 @@ input {
     margin-left: 15px;
 }
 
+@media only screen and (max-width: 600px) {
+    body {
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: var(--clr-dark);
+    }
+
+    .img-container {
+        height: 100px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+     .logo {
+        width: 50px;
+    }
+
+    .login-wrapper{
+        padding: 0 80px 0 80px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        color: var(--clr-light);
+    }
+    
+    h3{
+        font-size: var(--fs-l);
+        font-weight: var(--fw-regular);
+    }
+    
+    .title {
+        margin-bottom: 20px;
+    }
+    
+    .goal-cal {
+        width: 100%;
+        height: 2em;
+        color: var(--clr-light-light);
+        background-color: var(--clr-dark);
+        border: 1px solid var(--clr-light);
+        border-left: none;
+        border-right: none;
+        border-top: none;
+        padding: 10px 10px 10px 10px;
+        outline: none;
+    }
+    
+    form {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+    }
+    
+    .login-btn {
+        margin-bottom: 10px;
+    }
+    
+    .submit-btn {
+        height: 2.5em;
+        background-color: var(--clr-neon);
+        color: var(--clr-light);
+        box-shadow: none;
+        border: none;
+        margin-top: 35px;
+    }
+    
+    a {
+        color: var(--clr-light);
+    }
+    
+    .submit-btn:hover {
+        background-color: var(--clr-light);
+        color: var(--clr-neon);
+    }
+    
+    input {
+        height: 2.5em;
+        margin-top: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0.8em;
+        outline: none;
+        color: var(--clr-light);
+        border: 1px solid var(--clr-light);
+        background-color: transparent;
+    }
+    
+    .name-wrapper {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    
+    .name {
+        width: 50%;
+        border-left: 0;
+        border-right: 0;
+        border-top: 0; 
+    }
+    
+    .first {
+        margin-right: 15px;
+    }
+    
+    .last {
+        margin-left: 15px;
+    }
+}
