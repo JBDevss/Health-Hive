@@ -238,11 +238,17 @@ main {
 .right-col {
     padding: 75px;
     margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .right-col>h1 {
     font-size: var(--fs-l);
     text-align: center;
+    margin-top: 60px;
+    margin-bottom: 60px;
 }
 
 /* CALORIES */
