@@ -170,7 +170,7 @@ h3{
 }
 
 h2 {
-    font-size: var(--fs-m);
+    font-size: var(--fs-l);
 }
 
 select {
@@ -307,54 +307,84 @@ width: 30px;
     margin-bottom: 20px;
 }
 
+
 footer {
     display: flex;
-    padding: 100px;
-    justify-content: space-around;
-    align-items: center;
-    background-color: var(--clr-green);
+    flex-direction: column;
+    width: 100%;
+    padding: 0px 100px 50px 100px;
+    background-color: var(--clr-dark);
     color: var(--clr-light);
 }
 
-.footer-logo-wrapper {
+.container {
     display: flex;
-    margin-right: 20px;
+    flex-direction: row;
+    background-color: var(--clr-dark);
+    color: var(--clr-light);
+    border-bottom: 1px solid var(--clr-light);
+    border-top: 1px solid var(--clr-light);
+    padding: 100px 0 100px 0;
+}
+
+.left {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-right: 150px;
+
+}
+
+.right {
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    padding: 50px 0 0 100px;
+    justify-content: space-between;
+}
+
+.social-icon {
+    width: 20px;
+    margin-right: 15px;
+}
+
+.social-icon-grp {
+    display: flex;
+    flex-direction: row;
+    justify-content: right;
     align-items: center;
-    justify-content: center;
-}
-.footer-logo {
-    width: 100px;
+    margin-top: 10px;
 }
 
-.name-wrapper {
-    margin-left: 20px;
-    margin-right: 30px;
+#quote {
+    line-height: 1;
+    margin-top: 70px;
+    margin-bottom: 70px;
 }
 
-.footer-name {
-    font-size: var(--fs-m);
+#footer-logo {
+    width: 50px;
 }
 
-.about-us {
-    width: 600px;
+.address {
+    display: flex;
+    justify-content: space-between;
 }
 
+.socials {
+    display: flex;
+    justify-content: space-between;
+}
 
+.social-wrapper {
+    display: flex;
+    flex-direction: column;
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+.copyright {
+    margin-top: 20px;
+}
 
 /* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
 @media (prefers-reduced-motion: reduce) {
@@ -371,4 +401,111 @@ footer {
     scroll-behavior: auto !important;
   }
 }
+
+/* For screens smaller than 600px (mobile devices) */
+@media only screen and (max-width: 600px) {
+    .food-cards {
+      grid-template-columns: 1fr;
+    }
+
+    .section1{
+        padding: 0 70px 70px 70px;
+    }
+
+    .section2{
+        padding: 0 50px 70px 70px;
+    }
+
+    .section3 {
+        display: grid;
+        padding: 0 70px 70px 70px;
+        gap: 20px;
+        background-color: var(--clr-dark);
+        height: auto;
+        grid-template-columns: auto;
+    }
+
+    footer {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        padding: 0px 70px 50px 70px;
+        background-color: var(--clr-dark);
+        color: var(--clr-light);
+    }
+    
+    .container {
+        display: flex;
+        flex-direction: column;
+        background-color: var(--clr-dark);
+        color: var(--clr-light);
+        border-bottom: 1px solid var(--clr-light);
+        border-top: 1px solid var(--clr-light);
+    }
+    
+    .left {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 0;
+    }
+    
+    .right {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        margin-top: 50px;
+        padding: 0;
+        justify-content: space-between;
+    }
+    
+    .social-icon {
+        width: 20px;
+        margin-right: 15px;
+    }
+    
+    .social-icon-grp {
+        display: flex;
+        flex-direction: row;
+        justify-content: left;
+        align-items: center;
+        margin-top: 10px;
+    }
+    
+    #quote {
+        line-height: 1;
+        margin-top: 50px;
+        margin-bottom: 50px;
+    }
+    
+    #footer-logo {
+        display: none;
+        width: 50px;
+    }
+    
+    .address {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        margin-top: 20px;
+    }
+    
+    .socials {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        margin-top: 20px;
+    }
+    
+    .social-wrapper {
+        display: flex;
+        flex-direction: column;
+        margin-top: 20px;
+    }
+    
+    .copyright {
+        margin-top: 20px;
+    }
+  }
 
