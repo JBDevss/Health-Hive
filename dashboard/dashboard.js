@@ -6,7 +6,7 @@ const equipText = document.getElementById("equip-text");
 const parsedUserData = JSON.parse(localStorage.userData);
 const userFirstName = parsedUserData.firstName;
 const userCalorieGoal = parsedUserData.calorieGoal;
-const calorieGoalSpanTag = document.getElementById('calorie-goal-text');
+const calorieGoalSpanTag = document.getElementById("calorie-goal-text");
 const goodMorningUser = document.getElementById("goodmorning-username");
 
 goodMorningUser.textContent = userFirstName;
@@ -36,7 +36,6 @@ const fetchData = async (url, options) => {
 
 // CIRCULAR PROGRESS BAR
 
-
 //////
 const saveWorkoutData = () => {
   const workoutData = {};
@@ -52,7 +51,6 @@ const saveWorkoutData = () => {
 
   localStorage.setItem("workoutData", JSON.stringify(workoutData));
 };
-
 
 submitBtn.addEventListener("click", async function (e) {
   e.preventDefault();
@@ -208,9 +206,6 @@ const loadWorkoutData = () => {
   }
 };
 
-
-
-
 const displayTodaysWorkout = () => {
   const todaysWorkoutContainer = document.querySelector(".todays-workout");
   todaysWorkoutContainer.innerHTML = "";
@@ -260,17 +255,5 @@ document.getElementById("clear-all-btn").addEventListener("click", () => {
   displayTodaysWorkout();
   saveWorkoutData();
 });
-
-days.forEach((day) => {
-  const dayContainer = document.getElementById(day);
-  const clearBtn = dayContainer.querySelector(".clear-btn");
-
-  clearBtn.addEventListener("click", () => {
-    clearExercisesInDayContainer(dayContainer);
-    displayTodaysWorkout();
-    saveWorkoutData();
-  });
-});
-
 
 loadWorkoutData();

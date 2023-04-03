@@ -219,7 +219,7 @@ main {
 
 .goodmorning-title {
     font-size: var(--fs-xl);
-    color: var(--clr-neon);
+    color: var(--clr-light);
     padding: 30px;
     font-size: var(--fs-l)
 }
