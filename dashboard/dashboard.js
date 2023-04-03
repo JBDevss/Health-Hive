@@ -3,16 +3,17 @@ const muscleSelect = document.getElementById("target-muscle-select");
 const equipmentSelect = document.getElementById("equipment-select");
 const muscleGroupText = document.getElementById("muscle-group-text");
 const equipText = document.getElementById("equip-text");
-const parsedUserData = JSON.parse(localStorage.userData);
-const userFirstName = parsedUserData.firstName;
-const userCalorieGoal = parsedUserData.calorieGoal;
+const userData = localStorage.getItem("userData");
+const parsedUserData = userData ? JSON.parse(userData) : {};
+const userFirstName = parsedUserData.firstName || "User";
+const userCalorieGoal = parsedUserData.calorieGoal || 0;
 const calorieGoalSpanTag = document.getElementById("calorie-goal-text");
 const goodMorningUser = document.getElementById("goodmorning-username");
 const remainingCalories = document.getElementById('remaining-calories')
 
 goodMorningUser.textContent = userFirstName;
 calorieGoalSpanTag.textContent = userCalorieGoal;
-remainingCalories.textContent = parseInt(JSON.parse(localStorage.remaining));
+remainingCalories.textContent = parseInt(JSON.parse(localStorage.remaining || "0"));
 
 const exercisesDBOption = {
   method: "GET",
