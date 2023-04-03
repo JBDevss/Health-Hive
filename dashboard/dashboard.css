@@ -87,6 +87,12 @@ picture {
   }
 }
 
+.prevent-overflow {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    white-space: normal;
+}
+  
 /* NAV-BAR */
 .nav {
     display: flex;
@@ -103,6 +109,11 @@ nav>h3 {
 
 nav>p {
     margin: 0px;
+}
+
+nav>a>button:hover {
+    background-color: var(--clr-light);
+    color: var(--clr-green);
 }
 
 /* CALORIES + DAILY INFO */
@@ -184,9 +195,9 @@ main {
 
 /* DAILY INFO */
 
-/* .left-col {
-
-} */
+.left-col {
+    margin-top: 20px;
+}
 
 
 .todays-workout {
@@ -226,6 +237,7 @@ main {
 
 .right-col {
     padding: 75px;
+    margin-top: 10px;
 }
 
 .right-col>h1 {
@@ -454,3 +466,17 @@ footer {
 .about-us {
     width: 600px;
 }
+
+@media (min-width: 926px) {
+    .right-col {
+        margin-top: 20px; /* Adjust this value according to your needs for 926px and up */
+    }
+}
+
+@media (max-width: 576px) {
+    h1, h3 {
+      font-size: 6px; /* Adjust this value to your desired font size */
+    }
+}
+  
+  

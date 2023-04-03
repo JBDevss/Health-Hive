@@ -27,33 +27,31 @@
     <header>
       <nav class="nav">
         <img class="logo" src="../Asset_Pkg/SVG/Logo White.svg" width="50px" />
-        <h3 class="healthHive">Health Hive</h3>
+        <h2 class="healthHive">Health Hive</h2>
         <a href="/log_food/log_food.html">
-          <button class="btn btn-primary">Go to food logger</button>
+          <button class="btn" style="color: #EDECFF; background-color: #116628;">Add Food</button>
         </a>
       </nav>
     </header>
 
     <!-- CALORIES + DAILY INFO -->
-    <main
-      class="container-fluid row"
-      style="padding-left: 100px; padding-right: 100px; margin-left: 0px"
-    >
+    <main class="container-fluid row" style="padding-left: 100px; padding-right: 100px; margin-left: 0px">
       <div class="left-col container col">
         <div class="container col goodMorning-text-container">
-          <h1 class="goodmorning-title container">
+          <h1 class="goodmorning-title container prevent-overflow">
             Good Morning <br /><span id="goodmorning-username"></span>
           </h1>
         </div>
         <div class="todays-workout col">
-          <h3>Todays Workout</h3>
+          <h3 class="prevent-overflow">Todays Workout</h3>
         </div>
       </div>
       <div class="right-col container col">
         <!-- CIRCULAR PROGRESS BAR -->
-        <h1>Calorie Goal: <span id="calorie-goal-text"></span></h1>
+        <h1 class="prevent-overflow">Calorie Goal: <span id="calorie-goal-text"></span></h1>
       </div>
     </main>
+    
 
     <!-- EXERCISE SECTION -->
     <section class="exercise-section container-fluid">
@@ -241,54 +239,7 @@
         </div>
       </div>
     </div>
-
-    <!-- READ FITNESS ARTICLE SECRION -->
-    <!-- <section class="read-fitness-section container-fluid">
-      <h2>Read Fitness Articles</h2>
-      <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-        <ol class="carousel-indicators">
-          <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-          <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-          <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-        </ol>
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <img class="d-block w-100" src="..." alt="First slide">
-          </div>
-          <div class="carousel-item">
-            <img class="d-block w-100" src="..." alt="Second slide">
-          </div>
-          <div class="carousel-item">
-            <img class="d-block w-100" src="..." alt="Third slide">
-          </div>
-        </div>
-        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="sr-only">Previous</span>
-        </a>
-        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="sr-only">Next</span>
-        </a>
-      </div>
-
-    </section> -->
-
-    <!-- FOOTER -->
-    <footer class="container-fluid">
-      <div class="footer-logo-wrapper">
-        <img class="footer-logo" src="../Asset_Pkg/SVG/Logo Neon.svg" alt="" />
-        <div class="name-wrapper">
-          <h2 class="footer-name">Health</h2>
-          <h2 class="footer-name">Hive</h2>
-        </div>
-      </div>
-      <p class="about-us">
-        "Track your way to a better you with our fitness tracker. Take control
-        of your health and achieve your goals one step at a time."
-      </p>
-    </footer>
-
+    
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N"

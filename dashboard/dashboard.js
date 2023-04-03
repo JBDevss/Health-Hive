@@ -34,9 +34,6 @@ const fetchData = async (url, options) => {
   }
 };
 
-// CIRCULAR PROGRESS BAR
-
-//////
 const saveWorkoutData = () => {
   const workoutData = {};
 
