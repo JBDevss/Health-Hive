@@ -11,14 +11,20 @@
 </head>
 
 <body>
-    <form class="wrapper" id="free-trial">
-        <h3 class="title">Lets learn about you!</h3>
-        <div class="name-wrapper">
-            <input class="name first" type="text" placeholder="First Name" required/>
-            <input class="name last" type="text" placeholder="Last Name" required />
-        </div>
-        <input class="goal-cal" type="text" placeholder="Calorie goal ( Ex. 3,110 )" required/>
-        <input class="submit-btn" type="submit" value="Start Now"/>
-    </form>
+    <div class="img-container">
+        <img src="../Asset_Pkg/SVG/Logo Neon.svg" alt="" class="logo">
+    </div>
+
+    <div class="container">
+        <form class="wrapper" id="free-trial">
+            <h3 class="title">Lets learn about you!</h3>
+            <div class="name-wrapper">
+                <input class="name first" type="text" placeholder="First Name" required/>
+                <input class="name last" type="text" placeholder="Last Name" required />
+            </div>
+            <input class="goal-cal" type="text" placeholder="Calorie goal ( Ex. 3,110 )" required/>
+            <input class="submit-btn" type="submit" value="Start Now" formaction="../dashboard/dashboard.html"/>
+        </form>
+    </div>
 </body>
 </html>

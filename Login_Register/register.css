@@ -97,8 +97,7 @@ body {
     width: 50%;
     border-left: 0;
     border-right: 0;
-    border-top: 0;
-    
+    border-top: 0; 
 }
 
 .goal-cal {
@@ -120,7 +119,6 @@ input {
     color: var(--clr-light);
     border: 1px solid var(--clr-light);
     background-color: transparent;
-
 }
 
 .submit-btn {

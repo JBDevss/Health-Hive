@@ -7,7 +7,7 @@ form.addEventListener('submit', e => {
     const firstName = e.target[0].value; // First name
     const lastName = e.target[1].value; // Last name
     const calorieGoal = e.target[2].value; // Calorie goal
-
+    
     // Regular expression to match only letters for the first name and last name input fields
     const lettersOnlyRegex = /^[A-Za-z]+$/;
 
@@ -44,5 +44,5 @@ form.addEventListener('submit', e => {
     window.localStorage.setItem('userData', JSON.stringify(userData));
 
     // Redirect the user to a new page
-   window.location.href ="/dashboard/dashboard.html";
+   //window.location.href ="/home/bayzed17/Marcy_Lab/unit-6/Health-Hive/dashboard/dashboard.html";
 });
